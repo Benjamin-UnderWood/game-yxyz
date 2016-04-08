@@ -59,16 +59,16 @@ handle_sync_event(_Event, _From, StateName, Status) ->
 
 %%记录战斗结果
 handle_info({'BATTLE', [Hp, Mp, X, Y], Att2}, StateName, [Att, Minfo]) ->
-    case X > 0 andalso Y >0 of
+    Status1 = case X > 0 andalso Y >0 of
         true ->
-            Status1 = Minfo#ets_mon{
+            Minfo#ets_mon{
                         hp = Hp,
                         mp = Mp,
                         x = X,
                         y = Y
                     };
         false ->
-            Status1 = Minfo#ets_mon{
+            Minfo#ets_mon{
                         hp = Hp,
                         mp = Mp
                     }

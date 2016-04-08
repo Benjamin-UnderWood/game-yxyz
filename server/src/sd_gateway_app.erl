@@ -10,9 +10,10 @@
 -export([start/2, stop/1]).  
 -include("common.hrl").
 
+%% gateway app启动接口
 start(_Type, _Args) ->
     init_mysql(),
-    [Ip, Port, Sid] = init:get_plain_arguments(),
+    [Ip, Port, Sid] = init:get_plain_arguments(), %% 获取启动erlang vm时的extra参数:erl -extra Arg1 Arg2 Arg3
     sd_gateway_sup:start_link([Ip, list_to_integer(Port), list_to_integer(Sid)]).
   
 stop(_State) ->   

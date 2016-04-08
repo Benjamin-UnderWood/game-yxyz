@@ -52,8 +52,7 @@ children(Port) when is_integer(Port) ->
 
 %%组合主进程
 %%Port：端口
-port_name(Port) 
-  when is_integer(Port) ->
+port_name(Port) when is_integer(Port) ->
 	list_to_atom("sd_agme" ++ integer_to_list(Port)).
 
 %%打开监听

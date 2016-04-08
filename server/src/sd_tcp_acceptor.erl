@@ -67,7 +67,6 @@ set_sockopt(LSock, Sock) ->
             Error
     end.
 
-
 accept(State = #state{sock=LSock}) ->
     case prim_inet:async_accept(LSock, -1) of
         {ok, Ref} -> {noreply, State#state{ref=Ref}};

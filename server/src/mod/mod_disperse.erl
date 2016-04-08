@@ -50,6 +50,7 @@ send_to_all(Data) ->
 rpc_server_update(Id, Num) ->
     ?MODULE ! {rpc_server_update, Id, Num}.
 
+%% 启动一个erlang各节点的管理,通信进程
 start_link(Ip, Port, Sid) ->
     gen_server:start_link({local,?MODULE}, ?MODULE, [Ip, Port, Sid], []).
 
